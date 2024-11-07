@@ -13,7 +13,7 @@
 </dataSources>
 <snapshotProcedures/>
 <calculationViews>
-  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+  <calculationView xsi:type="Calculation:JoinView" id="SFLIGHT" cardinality="CN_N" joinType="inner" ignoreMultipleOutputsForFilter="false">
     <viewAttributes>
       <viewAttribute id="AGENCYNUM"/>
       <viewAttribute id="ORDERDAY"/>
@@ -36,27 +36,27 @@
   </calculationView>
 </calculationViews>
 
-<logicalModel id="Join_1">
+<logicalModel id="SFLIGHT">
   <attributes>
     <attribute id="AGENCYNUM" order="1" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="AGENCYNUM"/>
-      <keyMapping columnObjectName="Join_1" columnName="AGENCYNUM"/>
+      <keyMapping columnObjectName="SFLIGHT" columnName="AGENCYNUM"/>
     </attribute>
     <attribute id="ORDERDAY" order="2" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="ORDERDAY"/>
-      <keyMapping columnObjectName="Join_1" columnName="ORDERDAY"/>
+      <keyMapping columnObjectName="SFLIGHT" columnName="ORDERDAY"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
   <baseMeasures>
     <measure id="DAYCOUNT" order="3" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="DAYCOUNT"/>
-      <measureMapping columnObjectName="Join_1" columnName="DAYCOUNT"/>
+      <measureMapping columnObjectName="SFLIGHT" columnName="DAYCOUNT"/>
       <exceptionAggregationMetadata/>
     </measure>
     <measure id="NUMBOOKINGS" order="4" aggregationType="sum" measureType="simple">
       <descriptions defaultDescription="NUMBOOKINGS"/>
-      <measureMapping columnObjectName="Join_1" columnName="NUMBOOKINGS"/>
+      <measureMapping columnObjectName="SFLIGHT" columnName="NUMBOOKINGS"/>
       <exceptionAggregationMetadata/>
     </measure>
   </baseMeasures>
@@ -71,15 +71,15 @@
     </shape>
     
   
-    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+    <shape expanded="true" modelObjectName="SFLIGHT" modelObjectNameSpace="CalculationView">
       <upperLeftCorner x="105" y="207"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="com.sap::SAGBOOKDAYS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="com.sap::SAGBOOKDAYS" modelObjectNameSpace="SFLIGHT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="149" y="56"/>
       <rectangleSize width="214"/>
     </shape>
-    <shape modelObjectName="com.sap::SAGENCYDATA" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="com.sap::SAGENCYDATA" modelObjectNameSpace="SFLIGHT" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="620" y="30"/>
       <rectangleSize width="380"/>
     </shape>
