@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="C_V_PRD_PRUEBA" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" application="BAS">
+<descriptions defaultDescription="C_V_PRD_PRUEBA"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="com.sap::SAGBOOKDAYS">
+    <resourceUri>com.sap::SAGBOOKDAYS</resourceUri>
+  </DataSource>
+  <DataSource id="com.sap::SAGENCYDATA_1">
+    <resourceUri>com.sap::SAGENCYDATA</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="CN_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="AGENCYNUM"/>
+      <viewAttribute id="ORDERDAY"/>
+      <viewAttribute id="DAYCOUNT" aggregationType="sum"/>
+      <viewAttribute id="NUMBOOKINGS" aggregationType="sum"/>
+      <viewAttribute hidden="true" id="JOIN$AGENCYNUM$AGENCYNUM"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="com.sap::SAGBOOKDAYS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AGENCYNUM" source="AGENCYNUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ORDERDAY" source="ORDERDAY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DAYCOUNT" source="DAYCOUNT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$AGENCYNUM$AGENCYNUM" source="AGENCYNUM"/>
+    </input>
+    <input node="com.sap::SAGENCYDATA_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="NUMBOOKINGS" source="NUMBOOKINGS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$AGENCYNUM$AGENCYNUM" source="AGENCYNUM"/>
+    </input>
+    <joinAttribute name="JOIN$AGENCYNUM$AGENCYNUM"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="AGENCYNUM" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AGENCYNUM"/>
+      <keyMapping columnObjectName="Join_1" columnName="AGENCYNUM"/>
+    </attribute>
+    <attribute id="ORDERDAY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ORDERDAY"/>
+      <keyMapping columnObjectName="Join_1" columnName="ORDERDAY"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="DAYCOUNT" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="DAYCOUNT"/>
+      <measureMapping columnObjectName="Join_1" columnName="DAYCOUNT"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+    <measure id="NUMBOOKINGS" order="4" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="NUMBOOKINGS"/>
+      <measureMapping columnObjectName="Join_1" columnName="NUMBOOKINGS"/>
+      <exceptionAggregationMetadata/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="105" y="207"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="com.sap::SAGBOOKDAYS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="149" y="56"/>
+      <rectangleSize width="214.919921875"/>
+    </shape>
+    <shape modelObjectName="com.sap::SAGENCYDATA" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="620" y="30"/>
+      <rectangleSize width="380.4765625"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
