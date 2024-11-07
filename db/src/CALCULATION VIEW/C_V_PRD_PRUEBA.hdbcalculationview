@@ -77,11 +77,11 @@
     </shape>
     <shape modelObjectName="com.sap::SAGBOOKDAYS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="149" y="56"/>
-      <rectangleSize width="214.919921875"/>
+      <rectangleSize width="214"/>
     </shape>
     <shape modelObjectName="com.sap::SAGENCYDATA" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="620" y="30"/>
-      <rectangleSize width="380.4765625"/>
+      <rectangleSize width="380"/>
     </shape>
   </shapes>
 </layout>
